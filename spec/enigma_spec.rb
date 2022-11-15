@@ -3,6 +3,7 @@ require './lib/enigma'
 RSpec.describe Enigma do
   before :each do
     @enigma = Enigma.new
+    @date = Time.now.strftime("%d%m%y").to_s.delete("/")
   end
 
   it 'exists' do
@@ -25,6 +26,9 @@ RSpec.describe Enigma do
   it 'makes a random key' do
     expect(@enigma.make_random_key).to be_a(String)
     expect(@enigma.make_random_key.length).to eq(5)
+  end
 
+  it 'formats the date to be used for offsets' do
+    expect(@enigma.date_format).to eq(@date)
   end
 end

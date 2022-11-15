@@ -39,4 +39,12 @@ RSpec.describe Enigma do
   it 'creates the shift amount for A, B, C, D shifts' do
     expect(@enigma.shift("02715", "040895")).to eq([3, 0, 19, 20])
   end
+
+  it 'decrypts a string' do
+    expect(@enigma.decrypt("keder ohulw", "02715", "040895")).to eq({
+      decryption: "hello world",
+      key: "02715",
+      date: "040895"
+    })
+  end
 end

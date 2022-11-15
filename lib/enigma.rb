@@ -35,4 +35,14 @@ class Enigma
     end
     {encryption: encrypt.join, key: key, date: date}
   end
+
+  def decrypt(message, key, date = date_format)
+    split_up_message = message.downcase.chars
+    make_key = shift(key, date)
+    decrypt = split_up_message.map.with_index do |char, index|
+      new_index = (character_set.index(char) - make_key[index % 4])
+      character_set[new_index]
+    end
+    {decryption: decrypt.join, key: key, date: date}
+  end
 end

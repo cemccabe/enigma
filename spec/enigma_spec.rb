@@ -31,4 +31,8 @@ RSpec.describe Enigma do
   it 'formats the date to be used for offsets' do
     expect(@enigma.date_format).to eq(@date)
   end
+
+  it 'creates the offsets from the formatted date' do
+    expect(@enigma.date_offset('040895')).to eq([1, 0, 2, 5])
+  end
 end

@@ -35,4 +35,8 @@ RSpec.describe Enigma do
   it 'creates the offsets from the formatted date' do
     expect(@enigma.date_offset('040895')).to eq([1, 0, 2, 5])
   end
+
+  it 'creates the shift amount for A, B, C, D shifts' do
+    expect(@enigma.shift("02715", "040895")).to eq([3, 0, 19, 20])
+  end
 end

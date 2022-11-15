@@ -12,4 +12,8 @@ class Enigma
   def date_format
     Time.now.strftime("%d%m%y").to_s.delete('/')
   end
+
+  def date_offset(date)
+    (date.to_i ** 2).digits.reverse.last(4)
+  end
 end
